@@ -1,0 +1,29 @@
+{
+  "name": "@tracex/example-nextjs",
+  "version": "0.1.0",
+  "private": true,
+  "description": "TraceX Next.js 16 App Router Showcase Application",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@tracex/core": "workspace:*",
+    "@tracex/nextjs": "workspace:*",
+    "@tracex/node": "workspace:*",
+    "@tracex/react": "workspace:*",
+    "next": "^16.4.2",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3"
+  }
+}

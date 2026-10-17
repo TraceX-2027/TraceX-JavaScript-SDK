@@ -1,0 +1,23 @@
+{
+  "name": "@tracex/example-node-bun",
+  "version": "0.1.0",
+  "private": true,
+  "description": "TraceX Dual-Runtime Node.js and Bun CLI Showcase Application",
+  "type": "module",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsup",
+    "start:bun": "bun run src/index.ts",
+    "start:node": "tsup && node dist/index.js",
+    "start:interactive": "bun run src/index.ts --interactive"
+  },
+  "dependencies": {
+    "@tracex/core": "workspace:*",
+    "@tracex/node": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.3"
+  }
+}

@@ -46,6 +46,6 @@ export const close = (timeoutMs?: number): Promise<boolean> =>
 export const reset = (): void => TraceX.reset();
 
 // Re-export types
-export * from './types';
+export * from './types/index';
 
 export default TraceX;

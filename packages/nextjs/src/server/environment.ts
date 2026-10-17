@@ -1,5 +1,5 @@
 import type { EnvironmentContext } from '@tracex/core';
-import type { VercelEnvironmentContext } from '../types';
+import type { VercelEnvironmentContext } from '../types/index';
 
 /**
  * Provider harvesting deployment and runtime metadata from Vercel hosting

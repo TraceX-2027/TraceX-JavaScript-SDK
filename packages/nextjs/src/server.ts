@@ -1,7 +1,7 @@
 import type { BreadcrumbInput } from '@tracex/core';
 import type { TraceXNodeClient } from '@tracex/node';
 import { TraceXServer } from './server/tracex-server';
-import type { TraceXNextOptions } from './types';
+import type { TraceXNextOptions } from './types/index';
 
 // Export wrappers and server utilities
 export { withTraceXServerAction } from './server/server-action';
@@ -29,6 +29,6 @@ export const close = (timeoutMs?: number): Promise<boolean> =>
 export const reset = (): void => TraceXServer.reset();
 
 // Re-export all types
-export * from './types';
+export * from './types/index';
 
 export default TraceXServer;

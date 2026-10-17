@@ -6,7 +6,7 @@ import {
 import {
   TraceXServer,
 } from './server/tracex-server';
-import type { TraceXNextOptions } from './types';
+import type { TraceXNextOptions } from './types/index';
 
 /**
  * Determines whether execution is occurring inside a client (browser) environment.
@@ -124,6 +124,6 @@ export {
 } from '@tracex/react';
 
 // Re-export all types
-export * from './types';
+export * from './types/index';
 
 export default TraceX;
