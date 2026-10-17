@@ -24,7 +24,28 @@
       "version": "0.1.0",
       "dependencies": {
         "@tracex/core": "workspace:*",
+        "@tracex/node": "workspace:*",
+        "@tracex/react": "workspace:*",
       },
+      "devDependencies": {
+        "@types/node": "^22.10.1",
+        "@types/react": "^19.3.0",
+        "@types/react-dom": "^19.3.0",
+        "happy-dom": "^21.0.3",
+        "react": "^19.3.1",
+        "react-dom": "^19.3.1",
+        "tsup": "^8.3.5",
+        "typescript": "^5.7.3",
+      },
+      "peerDependencies": {
+        "next": ">=13.0.0",
+        "react": ">=16.8.0",
+        "react-dom": ">=16.8.0",
+      },
+      "optionalPeers": [
+        "next",
+        "react-dom",
+      ],
     },
     "packages/node": {
       "name": "@tracex/node",
@@ -49,7 +70,16 @@
         "happy-dom": "^21.0.3",
         "react": "^19.3.1",
         "react-dom": "^19.3.1",
+        "tsup": "^8.3.5",
+        "typescript": "^5.7.3",
       },
+      "peerDependencies": {
+        "react": ">=16.8.0",
+        "react-dom": ">=16.8.0",
+      },
+      "optionalPeers": [
+        "react-dom",
+      ],
     },
   },
   "packages": {
