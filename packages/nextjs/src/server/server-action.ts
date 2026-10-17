@@ -14,7 +14,12 @@ function isFormData(val: unknown): val is FormData {
 function isNextControlFlowError(error: unknown): boolean {
   if (!error) return false;
   if (typeof error === 'string') {
-    return error === 'NEXT_REDIRECT' || error === 'NEXT_NOT_FOUND';
+    return (
+      error === 'NEXT_REDIRECT' ||
+      error === 'NEXT_NOT_FOUND' ||
+      error === 'DYNAMIC_SERVER_USAGE' ||
+      error.startsWith('DYNAMIC_SERVER_USAGE')
+    );
   }
   const err = error as { digest?: unknown; message?: unknown };
   const digest = typeof err.digest === 'string' ? err.digest : undefined;
@@ -24,8 +29,14 @@ function isNextControlFlowError(error: unknown): boolean {
     (digest &&
       (digest.startsWith('NEXT_REDIRECT') ||
         digest.startsWith('NEXT_NOT_FOUND') ||
-        digest === 'NEXT_NOT_FOUND')) ||
-      (message && (message === 'NEXT_REDIRECT' || message === 'NEXT_NOT_FOUND'))
+        digest === 'NEXT_NOT_FOUND' ||
+        digest.startsWith('DYNAMIC_SERVER_USAGE') ||
+        digest === 'DYNAMIC_SERVER_USAGE')) ||
+      (message &&
+        (message === 'NEXT_REDIRECT' ||
+          message === 'NEXT_NOT_FOUND' ||
+          message === 'DYNAMIC_SERVER_USAGE' ||
+          message.includes('Dynamic server usage')))
   );
 }
 

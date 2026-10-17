@@ -9,7 +9,7 @@ import {
   type FallbackProps,
   type FallbackRender,
 } from '@tracex/react';
-import type { TraceXClientProviderProps } from '../types';
+import type { TraceXClientProviderProps } from '../types/index';
 
 /**
  * Default fallback UI rendered when an unhandled component error is caught.
@@ -77,7 +77,7 @@ export const TraceXClientProvider: React.FC<TraceXClientProviderProps> = ({
   children,
 }) => {
   // Automatic singleton initialization if options are provided and no client exists
-  if (options && !client && !TraceX.getClient()) {
+  if (typeof window !== 'undefined' && options && !client && !TraceX.getClient()) {
     try {
       TraceX.init(options as any);
     } catch {

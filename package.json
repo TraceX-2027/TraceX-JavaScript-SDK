@@ -3,16 +3,28 @@
   "version": "0.1.0",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "examples/*"
   ],
   "scripts": {
-    "build": "bun run --filter '*' build",
+    "build": "bun run --filter './packages/*' build",
+    "build:all": "bun run --filter '*' build",
+    "build:examples": "bun run --filter './examples/*' build",
     "test": "bun test",
-    "typecheck": "tsc --noEmit"
+    "test:e2e": "bun test test/e2e/e2e-pipeline.test.ts",
+    "typecheck": "tsc --noEmit",
+    "example:bun": "bun run --filter @tracex/example-node-bun start:bun",
+    "example:node": "bun run --filter @tracex/example-node-bun start:node",
+    "example:next": "bun run --filter @tracex/example-nextjs dev"
   },
   "devDependencies": {
     "@types/bun": "^1.4.3",
     "@types/node": "^22.10.1",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "happy-dom": "^21.0.3",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
     "tsup": "^8.3.5",
     "typescript": "^5.7.3"
   }

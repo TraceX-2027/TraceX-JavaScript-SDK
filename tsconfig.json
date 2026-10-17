@@ -5,6 +5,8 @@
   },
   "include": [
     "packages/*/src/**/*",
-    "packages/*/test/**/*"
+    "packages/*/test/**/*",
+    "test/**/*",
+    "examples/node-bun-sample/src/**/*"
   ]
 }

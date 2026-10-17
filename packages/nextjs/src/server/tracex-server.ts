@@ -1,6 +1,6 @@
 import type { BreadcrumbInput } from '@tracex/core';
 import { TraceX as TraceXNode, TraceXNodeClient } from '@tracex/node';
-import type { TraceXNextOptions } from '../types';
+import type { TraceXNextOptions } from '../types/index';
 import { VercelEnvironmentProvider } from './environment';
 
 /**
