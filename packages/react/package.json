@@ -1,0 +1,13 @@
+{
+  "name": "@tracex/react",
+  "version": "0.1.0",
+  "description": "TraceX SDK for React and browser applications",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "dependencies": {
+    "@tracex/core": "workspace:*"
+  },
+  "scripts": {
+    "build": "echo 'Skeleton package - ready for T2.35'"
+  }
+}
