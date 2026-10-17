@@ -2,12 +2,60 @@
   "name": "@tracex/nextjs",
   "version": "0.1.0",
   "description": "TraceX SDK for Next.js full-stack applications",
-  "main": "./src/index.ts",
-  "types": "./src/index.ts",
-  "dependencies": {
-    "@tracex/core": "workspace:*"
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./client": {
+      "types": "./dist/client.d.ts",
+      "import": "./dist/client.js",
+      "require": "./dist/client.cjs"
+    },
+    "./server": {
+      "types": "./dist/server.d.ts",
+      "import": "./dist/server.js",
+      "require": "./dist/server.cjs"
+    }
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "echo 'Skeleton package - ready for T2.36'"
+    "build": "tsup",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@tracex/core": "workspace:*",
+    "@tracex/node": "workspace:*",
+    "@tracex/react": "workspace:*"
+  },
+  "peerDependencies": {
+    "next": ">=13.0.0",
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "peerDependenciesMeta": {
+    "next": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "happy-dom": "^21.0.3",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.3"
   }
 }
