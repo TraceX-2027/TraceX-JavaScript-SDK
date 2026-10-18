@@ -46,11 +46,11 @@ jobs:
       - name: Gate 1 - TypeScript Typecheck
         run: bun run typecheck
 
-      - name: Gate 2 - Unit & Integration Test Suite
-        run: bun test
-
-      - name: Gate 3 - Production Build
+      - name: Gate 2 - Production Build
         run: bun run build
+
+      - name: Gate 3 - Unit & Integration Test Suite
+        run: bun test
 
       - name: Gate 4 - Release Tarballs & External Sandbox Verification
         run: |
