@@ -1,5 +1,7 @@
 # TraceX JavaScript & TypeScript SDK
 
+[![CI](https://github.com/TraceX-2027/TraceX-JavaScript-SDK/actions/workflows/ci.yml/badge.svg)](https://github.com/TraceX-2027/TraceX-JavaScript-SDK/actions/workflows/ci.yml)
+[![GitHub Release](https://img.shields.io/github/v/release/TraceX-2027/TraceX-JavaScript-SDK?color=blue)](https://github.com/TraceX-2027/TraceX-JavaScript-SDK/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![npm @tracex-dev/core](https://img.shields.io/npm/v/@tracex-dev/core.svg?label=@tracex-dev/core)](https://www.npmjs.com/package/@tracex-dev/core)
 [![npm @tracex-dev/node](https://img.shields.io/npm/v/@tracex-dev/node.svg?label=@tracex-dev/node)](https://www.npmjs.com/package/@tracex-dev/node)
@@ -306,7 +308,7 @@ bun run release
 
 ## NPM Publishing & Release Verification
 
-TraceX SDK packages are distributed as scoped public packages under the `@tracex` npm organization:
+TraceX SDK packages are distributed as scoped public packages under the [`@tracex-dev`](https://www.npmjs.com/org/tracex-dev) npm organization:
 - [`@tracex-dev/core`](https://www.npmjs.com/package/@tracex-dev/core)
 - [`@tracex-dev/node`](https://www.npmjs.com/package/@tracex-dev/node)
 - [`@tracex-dev/react`](https://www.npmjs.com/package/@tracex-dev/react)
@@ -316,10 +318,19 @@ TraceX SDK packages are distributed as scoped public packages under the `@tracex
 1. **Atomic Workspace Resolution**: Monorepo packages use `workspace:*` dependencies for local development. During release packaging (`scripts/publish.ts`), dependencies are safely rewritten to exact semver ranges (`^0.1.0`) inside published tarballs and automatically restored to `workspace:*` immediately afterward.
 2. **External Sandbox Verification**: Prior to release, `test/sandbox-verify.ts` creates an isolated directory outside the monorepo, runs `npm install` against generated `.tgz` artifacts, verifies `tsc --noEmit` compiles consumer code with 0 errors, and executes both ESM (`.mjs`) and CommonJS (`.cjs`) consumers under Node.js with exit code 0.
 3. **Topological Order**: Packages are published in topological dependency sequence (`@tracex-dev/core` $\to$ `@tracex-dev/node` & `@tracex-dev/react` $\to$ `@tracex-dev/nextjs`).
-4. **CI/CD Automation & Provenance**: The `.github/workflows/publish-sdk.yml` workflow triggers on git tag pushes (`v*`) and manual workflow dispatch (`dry_run: true` by default), publishing artifacts with cryptographic OIDC provenance.
+4. **CI/CD Automation**: Automated publication via GitHub Actions with pre-flight static analysis, build verification, and isolated sandbox testing.
+
+---
+
+## Community & Contributing
+
+- **[Contributing Guide](CONTRIBUTING.md)**: Development setup, script guidelines, and PR workflow.
+- **[Security Policy](SECURITY.md)**: Reporting security vulnerabilities privately.
+- **[Code of Conduct](CODE_OF_CONDUCT.md)**: Community standards and pledge.
+- **[Discussions](https://github.com/TraceX-2027/TraceX-JavaScript-SDK/discussions)**: Community questions, feature ideation, and architectural feedback.
 
 ---
 
 ## License
 
-MIT © 2026 TraceX Platform Team.
+MIT © 2026 TraceX Platform Team. See [LICENSE](LICENSE) for details.

@@ -1,0 +1,41 @@
+name: 💡 Feature Request
+description: Suggest an idea or architectural improvement for the TraceX SDK
+title: "[FEAT]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting a feature!
+  - type: dropdown
+    id: package
+    attributes:
+      label: Target Package
+      description: Which package should this feature be added to?
+      options:
+        - "@tracex-dev/core"
+        - "@tracex-dev/node"
+        - "@tracex-dev/react"
+        - "@tracex-dev/nextjs"
+        - "Cross-cutting / Monorepo"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Is your feature request related to a problem?
+      description: A clear description of the problem or limitation you are facing.
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution / API Design
+      description: Describe the solution or how you envision the API look and feel.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Any alternative solutions or workarounds you've considered.

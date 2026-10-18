@@ -1,0 +1,63 @@
+name: 🐛 Bug Report
+description: File a bug report to help us improve the TraceX SDK
+title: "[BUG]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report an issue! Please check existing issues before submitting.
+  - type: dropdown
+    id: package
+    attributes:
+      label: Affected Package
+      description: Which TraceX package is experiencing the issue?
+      options:
+        - "@tracex-dev/core"
+        - "@tracex-dev/node"
+        - "@tracex-dev/react"
+        - "@tracex-dev/nextjs"
+        - "Examples / Tooling"
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: SDK Version
+      description: What version of the package are you using? (e.g., 0.1.0)
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: input
+    id: runtime
+    attributes:
+      label: Runtime & Environment
+      description: e.g. Node.js 22.10, Bun 1.2, Next.js 16.0, Chrome 131, Windows 11 / Ubuntu 24.04
+      placeholder: "Node.js v22.12.0 on Linux x64"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Problem Description
+      description: A clear and concise description of what the bug is.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: Steps or minimal code snippet to reproduce the behavior.
+      placeholder: |
+        1. Initialize `@tracex-dev/node` with ...
+        2. Trigger exception ...
+        3. See error ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
