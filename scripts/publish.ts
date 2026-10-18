@@ -253,7 +253,7 @@ export function runRelease(options: { dryRun?: boolean; skipGates?: boolean; ski
   const isDryRun = options.dryRun ?? false;
   const skipGates = options.skipGates ?? false;
   const skipBuild = options.skipBuild ?? false;
-  const useProvenance = options.provenance ?? (process.env.GITHUB_ACTIONS === 'true');
+  const useProvenance = options.provenance ?? false;
 
   console.log('====================================================');
   console.log(` TraceX SDK Suite Release Pipeline [${isDryRun ? 'DRY-RUN' : 'PRODUCTION'}]`);

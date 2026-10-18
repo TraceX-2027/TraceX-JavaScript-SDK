@@ -64,9 +64,9 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: bun run release:dry-run --skip-gates
 
-      - name: Release to NPM (Live Publication with Provenance)
+      - name: Release to NPM (Live Publication)
         if: ${{ github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && (inputs.dry_run == false || inputs.dry_run == 'false' || github.event.inputs.dry_run == 'false')) }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: bun run release --skip-gates --provenance
+        run: bun run release --skip-gates
