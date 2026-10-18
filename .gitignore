@@ -35,3 +35,6 @@ Thumbs.db
 # BMAD
 _bmad*
 .agent
+
+# Local documentation & Handbook
+local-docs/
