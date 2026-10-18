@@ -20,8 +20,8 @@ We provide security patches for the following versions:
 If you discover a security vulnerability in any TraceX package, please **DO NOT** open a public GitHub issue.
 
 Instead, please report security issues privately via:
-- **Email:** `security@tracex.dev` (or contact project maintainer: `kareem.adel.awad@gmail.com`)
-- **GitHub Security Advisory:** Submit a private advisory at [https://github.com/TraceX-2027/TraceX-JavaScript-SDK/security/advisories/new](https://github.com/TraceX-2027/TraceX-JavaScript-SDK/security/advisories/new)
+- **Email:** [`team@tracex.dev`](mailto:team@tracex.dev)
+
 
 ### What to Include
 Please provide:
