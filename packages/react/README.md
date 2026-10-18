@@ -1,5 +1,8 @@
 # `@tracex/react`
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![npm version](https://img.shields.io/npm/v/@tracex/react.svg)](https://www.npmjs.com/package/@tracex/react)
+
 TraceX Crash Observability, DOM Interaction Tracking, and Error Boundary SDK for **React** (supports React 16.8+, React 18, and React 19).
 
 Captures unhandled render crashes, records user click breadcrumbs with strict PII filtering, and monitors single-page application (SPA) client navigation.

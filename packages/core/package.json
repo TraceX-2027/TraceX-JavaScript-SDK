@@ -18,8 +18,35 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TraceX-2027/TraceX-JavaScript-SDK.git",
+    "directory": "packages/core"
+  },
+  "homepage": "https://github.com/TraceX-2027/TraceX-JavaScript-SDK#readme",
+  "bugs": {
+    "url": "https://github.com/TraceX-2027/TraceX-JavaScript-SDK/issues"
+  },
+  "author": "TraceX Platform Team <team@tracex.dev>",
+  "license": "MIT",
+  "keywords": [
+    "tracex",
+    "telemetry",
+    "tracing",
+    "monitoring",
+    "sdk",
+    "error-tracking",
+    "apm",
+    "ring-buffer",
+    "pii-redaction"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsup",
     "test": "bun test",

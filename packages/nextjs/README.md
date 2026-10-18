@@ -1,5 +1,8 @@
 # `@tracex/nextjs`
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![npm version](https://img.shields.io/npm/v/@tracex/nextjs.svg)](https://www.npmjs.com/package/@tracex/nextjs)
+
 Full-stack Crash Telemetry and Observability SDK for **Next.js** (supporting **App Router** and **Pages Router**).
 
 Provides universal isomorphic routing, Client Component error boundaries, Server Action latency profiling & PII sanitization, RFC 7807 Problem Details Route Handler protection, and automatic Vercel hosting forensics.

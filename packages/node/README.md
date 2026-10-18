@@ -1,5 +1,8 @@
 # `@tracex/node`
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![npm version](https://img.shields.io/npm/v/@tracex/node.svg)](https://www.npmjs.com/package/@tracex/node)
+
 TraceX Crash Telemetry and Runtime Forensics SDK for **Node.js** (`>=18.0.0`) and **Bun** server runtimes.
 
 Automatically catches unhandled process crashes, tracks outgoing HTTP/HTTPS client requests as breadcrumbs, samples live memory metrics, and hooks process lifecycle signals for zero-loss graceful shutdowns.

@@ -1,6 +1,10 @@
 # TraceX JavaScript & TypeScript SDK
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![npm @tracex/core](https://img.shields.io/npm/v/@tracex/core.svg?label=@tracex/core)](https://www.npmjs.com/package/@tracex/core)
+[![npm @tracex/node](https://img.shields.io/npm/v/@tracex/node.svg?label=@tracex/node)](https://www.npmjs.com/package/@tracex/node)
+[![npm @tracex/react](https://img.shields.io/npm/v/@tracex/react.svg?label=@tracex/react)](https://www.npmjs.com/package/@tracex/react)
+[![npm @tracex/nextjs](https://img.shields.io/npm/v/@tracex/nextjs.svg?label=@tracex/nextjs)](https://www.npmjs.com/package/@tracex/nextjs)
 [![Runtime: Node.js >= 18](https://img.shields.io/badge/Node.js-%3E%3D18.0.0-green.svg)](https://nodejs.org)
 [![Runtime: Bun >= 1.0](https://img.shields.io/badge/Bun-%3E%3D1.0.0-orange.svg)](https://bun.sh)
 [![Next.js: App Router](https://img.shields.io/badge/Next.js-App%20Router-black.svg)](https://nextjs.org)
@@ -273,7 +277,7 @@ bun run --filter @tracex/example-nextjs build
 ## Development & Testing Commands
 
 ```bash
-# Execute entire test suite (176 unit and cross-package E2E tests)
+# Execute entire test suite (178 unit and cross-package E2E tests)
 bun test
 
 # Execute E2E integration test pipeline only
@@ -284,7 +288,35 @@ bun run typecheck
 
 # Build all packages and sample applications across the monorepo
 bun run build
+
+# Package all 4 SDK tarballs with atomic workspace:* to semver replacement
+bun run pack:all
+
+# Run automated external consumer sandbox verification (clean npm install, tsc, ESM/CJS runtimes)
+bun run test:sandbox
+
+# Perform full release dry-run pipeline across all packages (gates + npm publish --dry-run)
+bun run release:dry-run
+
+# Execute production publication to NPM registry (gates + npm publish with provenance)
+bun run release
 ```
+
+---
+
+## NPM Publishing & Release Verification
+
+TraceX SDK packages are distributed as scoped public packages under the `@tracex` npm organization:
+- [`@tracex/core`](https://www.npmjs.com/package/@tracex/core)
+- [`@tracex/node`](https://www.npmjs.com/package/@tracex/node)
+- [`@tracex/react`](https://www.npmjs.com/package/@tracex/react)
+- [`@tracex/nextjs`](https://www.npmjs.com/package/@tracex/nextjs)
+
+### Release Guarantees
+1. **Atomic Workspace Resolution**: Monorepo packages use `workspace:*` dependencies for local development. During release packaging (`scripts/publish.ts`), dependencies are safely rewritten to exact semver ranges (`^0.1.0`) inside published tarballs and automatically restored to `workspace:*` immediately afterward.
+2. **External Sandbox Verification**: Prior to release, `test/sandbox-verify.ts` creates an isolated directory outside the monorepo, runs `npm install` against generated `.tgz` artifacts, verifies `tsc --noEmit` compiles consumer code with 0 errors, and executes both ESM (`.mjs`) and CommonJS (`.cjs`) consumers under Node.js with exit code 0.
+3. **Topological Order**: Packages are published in topological dependency sequence (`@tracex/core` $\to$ `@tracex/node` & `@tracex/react` $\to$ `@tracex/nextjs`).
+4. **CI/CD Automation & Provenance**: The `.github/workflows/publish-sdk.yml` workflow triggers on git tag pushes (`v*`) and manual workflow dispatch (`dry_run: true` by default), publishing artifacts with cryptographic OIDC provenance.
 
 ---
 

@@ -1,5 +1,8 @@
 # `@tracex/core`
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![npm version](https://img.shields.io/npm/v/@tracex/core.svg)](https://www.npmjs.com/package/@tracex/core)
+
 The core client engine and telemetry pipeline powering all TraceX SDKs (`@tracex/node`, `@tracex/react`, and `@tracex/nextjs`).
 
 Provides thread-safe FIFO circular ring buffers, comprehensive PII sanitization (Luhn credit cards, Bearer tokens, secrets), and an asynchronous non-blocking HTTP telemetry dispatcher with exponential backoff and HTTP 429 rate-limit handling.
