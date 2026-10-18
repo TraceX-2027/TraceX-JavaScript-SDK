@@ -61,8 +61,9 @@ describe('NPM Release Pipeline & Manifest Invariance', () => {
       originalContents.set(manifestPath, fs.readFileSync(manifestPath, 'utf8'));
     }
 
-    // 2. Run packaging engine
-    const { versions } = packAllPackages(true);
+    // 2. Run packaging engine (ensuring packages are built if dist/ is absent)
+    const distMissing = PACKAGES.some((pkg) => !fs.existsSync(path.join(pkg.dir, 'dist')));
+    const { versions } = packAllPackages(distMissing ? false : true);
     const coreVersion = versions.get('@tracex-dev/core')!;
 
     // 3. Verify on-disk manifests were immediately and identically restored
