@@ -352,9 +352,9 @@ export function runRelease(options: { dryRun?: boolean; skipGates?: boolean; ski
       const isAlreadyPublished =
         output.includes('cannot publish over previously published versions') ||
         output.includes('You cannot publish over the previously published versions') ||
-        output.includes('E403') ||
         output.includes('EPUBLISHCONFLICT') ||
-        (output.includes('403 Forbidden') && output.includes('previously published'));
+        ((output.includes('403 Forbidden') || output.includes('E403')) &&
+          (output.includes('previously published') || output.includes('cannot publish over')));
 
       if (isAlreadyPublished) {
         console.warn(`\n⚠️  [ALREADY PUBLISHED] ${pkg.name}@${pkgVersion} is already published on registry. Skipping...\n`);
