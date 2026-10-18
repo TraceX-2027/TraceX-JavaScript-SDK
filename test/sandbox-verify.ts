@@ -11,10 +11,10 @@ const corePkgPath = path.join(ROOT_DIR, 'packages', 'core', 'package.json');
 const currentVersion: string = JSON.parse(fs.readFileSync(corePkgPath, 'utf8')).version;
 
 const EXPECTED_TARBALLS = [
-  `tracex-core-${currentVersion}.tgz`,
-  `tracex-node-${currentVersion}.tgz`,
-  `tracex-react-${currentVersion}.tgz`,
-  `tracex-nextjs-${currentVersion}.tgz`,
+  `tracex-dev-core-${currentVersion}.tgz`,
+  `tracex-dev-node-${currentVersion}.tgz`,
+  `tracex-dev-react-${currentVersion}.tgz`,
+  `tracex-dev-nextjs-${currentVersion}.tgz`,
 ];
 
 function runCommandOrThrow(
@@ -86,10 +86,10 @@ export function runSandboxVerification(): void {
       private: true,
       type: 'module',
       dependencies: {
-        '@tracex/core': `./tarballs/tracex-core-${currentVersion}.tgz`,
-        '@tracex/node': `./tarballs/tracex-node-${currentVersion}.tgz`,
-        '@tracex/react': `./tarballs/tracex-react-${currentVersion}.tgz`,
-        '@tracex/nextjs': `./tarballs/tracex-nextjs-${currentVersion}.tgz`,
+        '@tracex-dev/core': `./tarballs/tracex-dev-core-${currentVersion}.tgz`,
+        '@tracex-dev/node': `./tarballs/tracex-dev-node-${currentVersion}.tgz`,
+        '@tracex-dev/react': `./tarballs/tracex-dev-react-${currentVersion}.tgz`,
+        '@tracex-dev/nextjs': `./tarballs/tracex-dev-nextjs-${currentVersion}.tgz`,
         react: '^19.3.1',
         'react-dom': '^19.3.1',
       },
@@ -144,37 +144,37 @@ import {
   HttpTelemetryDispatcher,
   type Breadcrumb,
   type CrashEventPayload,
-} from '@tracex/core';
+} from '@tracex-dev/core';
 
 import {
   TraceX as TraceXNode,
   TraceXNodeClient,
   type TraceXNodeOptions,
-} from '@tracex/node';
+} from '@tracex-dev/node';
 
 import {
   TraceX as TraceXReact,
   TraceXProvider,
   TraceXErrorBoundary,
   type TraceXReactOptions,
-} from '@tracex/react';
+} from '@tracex-dev/react';
 
 import {
   withTraceXServerAction,
   withTraceXRoute,
   TraceXClientProvider,
-} from '@tracex/nextjs';
+} from '@tracex-dev/nextjs';
 
 import {
   withTraceXServerAction as serverActionFn,
   withTraceXRoute as routeFn,
-} from '@tracex/nextjs/server';
+} from '@tracex-dev/nextjs/server';
 
 import {
   TraceXClientProvider as ClientProviderComp,
-} from '@tracex/nextjs/client';
+} from '@tracex-dev/nextjs/client';
 
-// 1. @tracex/core type checking & API verification
+// 1. @tracex-dev/core type checking & API verification
 const ringBuffer = new BreadcrumbRingBuffer(20);
 const breadcrumb: Breadcrumb = {
   sequence_order: 1,
@@ -194,7 +194,7 @@ const dispatcher = new HttpTelemetryDispatcher({
   projectKey: 'tracex_test_key_00000000',
 });
 
-// 2. @tracex/node type checking & API verification
+// 2. @tracex-dev/node type checking & API verification
 const nodeOpts: TraceXNodeOptions = {
   projectKey: 'tracex_test_node_sandbox_key',
   captureUncaughtExceptions: false,
@@ -205,7 +205,7 @@ TraceXNode.init(nodeOpts);
 TraceXNode.addBreadcrumb({ category: 'sandbox', action: 'test_node', target: 'node_sandbox' });
 const nodeClient: TraceXNodeClient | undefined = TraceXNode.getClient();
 
-// 3. @tracex/react type checking & API verification
+// 3. @tracex-dev/react type checking & API verification
 const reactOpts: TraceXReactOptions = {
   projectKey: 'tracex_test_react_sandbox_key',
   instrumentClicks: false,
@@ -213,7 +213,7 @@ const reactOpts: TraceXReactOptions = {
 };
 TraceXReact.init(reactOpts);
 
-// 4. @tracex/nextjs type checking & API verification
+// 4. @tracex-dev/nextjs type checking & API verification
 const action = withTraceXServerAction('sampleAction', async (input: { id: string }) => {
   return { success: true, id: input.id };
 });
@@ -240,13 +240,13 @@ console.log('[TYPECHECK] Consumer TypeScript assertions passed');
     // 9. Write consumer.mjs (ESM Node.js consumer covering all 4 packages)
     const consumerMjs = `
 import assert from 'node:assert';
-import { BreadcrumbRingBuffer, DataScrubber } from '@tracex/core';
-import { TraceX as TraceXNode } from '@tracex/node';
-import { TraceX as TraceXReact, TraceXErrorBoundary, TraceXProvider } from '@tracex/react';
-import { withTraceXServerAction, withTraceXRoute, TraceXClientProvider } from '@tracex/nextjs';
-import { withTraceXServerAction as serverActionFn, withTraceXRoute as routeFn, TraceX as TraceXServer } from '@tracex/nextjs/server';
+import { BreadcrumbRingBuffer, DataScrubber } from '@tracex-dev/core';
+import { TraceX as TraceXNode } from '@tracex-dev/node';
+import { TraceX as TraceXReact, TraceXErrorBoundary, TraceXProvider } from '@tracex-dev/react';
+import { withTraceXServerAction, withTraceXRoute, TraceXClientProvider } from '@tracex-dev/nextjs';
+import { withTraceXServerAction as serverActionFn, withTraceXRoute as routeFn, TraceX as TraceXServer } from '@tracex-dev/nextjs/server';
 
-console.log('▶ [ESM] Testing @tracex/core, @tracex/node, @tracex/react, and @tracex/nextjs under Node.js runtime...');
+console.log('▶ [ESM] Testing @tracex-dev/core, @tracex-dev/node, @tracex-dev/react, and @tracex-dev/nextjs under Node.js runtime...');
 
 // 1. Test BreadcrumbRingBuffer
 const ring = new BreadcrumbRingBuffer(5);
@@ -276,7 +276,7 @@ const breadcrumbs = client.getRingBuffer().toArray();
 assert.strictEqual(breadcrumbs.length, 1);
 assert.strictEqual(breadcrumbs[0].action, 'esm_executed');
 
-// 4. Test @tracex/react runtime exports & facade
+// 4. Test @tracex-dev/react runtime exports & facade
 TraceXReact.init({
   projectKey: 'tracex_test_react_esm_key',
   instrumentClicks: false,
@@ -286,7 +286,7 @@ assert.ok(typeof TraceXReact.init === 'function', 'TraceXReact.init should be a 
 assert.ok(typeof TraceXErrorBoundary !== 'undefined', 'TraceXErrorBoundary should be defined');
 assert.ok(typeof TraceXProvider !== 'undefined', 'TraceXProvider should be defined');
 
-// 5. Test @tracex/nextjs and @tracex/nextjs/server runtime wrappers
+// 5. Test @tracex-dev/nextjs and @tracex-dev/nextjs/server runtime wrappers
 assert.ok(typeof TraceXClientProvider !== 'undefined', 'TraceXClientProvider should be defined');
 assert.ok(typeof withTraceXRoute === 'function', 'withTraceXRoute should be a function');
 assert.ok(typeof routeFn === 'function', 'routeFn from /server should be a function');
@@ -321,13 +321,13 @@ console.log('✅ [ESM] ESM verification script executed successfully!');
     // 10. Write consumer.cjs (CommonJS Node.js consumer covering all 4 packages)
     const consumerCjs = `
 const assert = require('node:assert');
-const { BreadcrumbRingBuffer, DataScrubber } = require('@tracex/core');
-const { TraceX: TraceXNode } = require('@tracex/node');
-const { TraceX: TraceXReact, TraceXErrorBoundary, TraceXProvider } = require('@tracex/react');
-const { withTraceXServerAction, withTraceXRoute, TraceXClientProvider } = require('@tracex/nextjs');
-const { withTraceXServerAction: serverActionFn, withTraceXRoute: routeFn, TraceX: TraceXServer } = require('@tracex/nextjs/server');
+const { BreadcrumbRingBuffer, DataScrubber } = require('@tracex-dev/core');
+const { TraceX: TraceXNode } = require('@tracex-dev/node');
+const { TraceX: TraceXReact, TraceXErrorBoundary, TraceXProvider } = require('@tracex-dev/react');
+const { withTraceXServerAction, withTraceXRoute, TraceXClientProvider } = require('@tracex-dev/nextjs');
+const { withTraceXServerAction: serverActionFn, withTraceXRoute: routeFn, TraceX: TraceXServer } = require('@tracex-dev/nextjs/server');
 
-console.log('▶ [CJS] Testing @tracex/core, @tracex/node, @tracex/react, and @tracex/nextjs under CommonJS runtime...');
+console.log('▶ [CJS] Testing @tracex-dev/core, @tracex-dev/node, @tracex-dev/react, and @tracex-dev/nextjs under CommonJS runtime...');
 
 async function run() {
   // 1. Test BreadcrumbRingBuffer
@@ -358,7 +358,7 @@ async function run() {
   assert.strictEqual(breadcrumbs.length, 1);
   assert.strictEqual(breadcrumbs[0].action, 'cjs_executed');
 
-  // 4. Test @tracex/react runtime exports & facade
+  // 4. Test @tracex-dev/react runtime exports & facade
   TraceXReact.init({
     projectKey: 'tracex_test_react_cjs_key',
     instrumentClicks: false,
@@ -368,7 +368,7 @@ async function run() {
   assert.ok(typeof TraceXErrorBoundary !== 'undefined', 'TraceXErrorBoundary should be defined');
   assert.ok(typeof TraceXProvider !== 'undefined', 'TraceXProvider should be defined');
 
-  // 5. Test @tracex/nextjs and @tracex/nextjs/server runtime wrappers
+  // 5. Test @tracex-dev/nextjs and @tracex-dev/nextjs/server runtime wrappers
   assert.ok(typeof TraceXClientProvider !== 'undefined', 'TraceXClientProvider should be defined');
   assert.ok(typeof withTraceXRoute === 'function', 'withTraceXRoute should be a function');
   assert.ok(typeof routeFn === 'function', 'routeFn from /server should be a function');

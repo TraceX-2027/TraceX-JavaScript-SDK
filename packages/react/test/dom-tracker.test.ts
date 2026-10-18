@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, afterEach } from 'bun:test';
 import { GlobalWindow } from 'happy-dom';
 import { DOMClickTracker, getElementIdentifier } from '../src/integrations/dom-tracker';
 import { TraceXReactClient } from '../src/client/react-client';
-import { DataScrubber, Breadcrumb } from '@tracex/core';
+import { DataScrubber, Breadcrumb } from '@tracex-dev/core';
 
 describe('DOMClickTracker & getElementIdentifier', () => {
   let win: GlobalWindow;

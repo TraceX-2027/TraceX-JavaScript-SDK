@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it } from 'bun:test';
-import type { CrashEventPayload, ITransport, TransportResponse } from '@tracex/core';
+import type { CrashEventPayload, ITransport, TransportResponse } from '@tracex-dev/core';
 import { withTraceXRoute } from '../src/server/route-handler';
 import { TraceX } from '../src/server/tracex-server';
 

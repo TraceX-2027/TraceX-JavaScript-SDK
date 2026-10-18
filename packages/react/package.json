@@ -1,5 +1,5 @@
 {
-  "name": "@tracex/react",
+  "name": "@tracex-dev/react",
   "version": "0.1.0",
   "description": "TraceX SDK for React and browser applications",
   "main": "./dist/index.cjs",
@@ -54,7 +54,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@tracex/core": "workspace:*"
+    "@tracex-dev/core": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=16.8.0",

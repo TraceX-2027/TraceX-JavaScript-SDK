@@ -1,4 +1,4 @@
-import { withTraceXRoute, TraceX as TraceXServer } from '@tracex/nextjs/server';
+import { withTraceXRoute, TraceX as TraceXServer } from '@tracex-dev/nextjs/server';
 
 if (!TraceXServer.getClient()) {
   TraceXServer.init({

@@ -1,5 +1,5 @@
 {
-  "name": "@tracex/nextjs",
+  "name": "@tracex-dev/nextjs",
   "version": "0.1.0",
   "description": "TraceX SDK for Next.js full-stack applications",
   "main": "./dist/index.cjs",
@@ -60,9 +60,9 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@tracex/core": "workspace:*",
-    "@tracex/node": "workspace:*",
-    "@tracex/react": "workspace:*"
+    "@tracex-dev/core": "workspace:*",
+    "@tracex-dev/node": "workspace:*",
+    "@tracex-dev/react": "workspace:*"
   },
   "peerDependencies": {
     "next": ">=13.0.0",

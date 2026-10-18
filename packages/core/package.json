@@ -1,5 +1,5 @@
 {
-  "name": "@tracex/core",
+  "name": "@tracex-dev/core",
   "version": "0.1.0",
   "description": "TraceX shared core client engine and telemetry pipeline",
   "main": "./dist/index.cjs",

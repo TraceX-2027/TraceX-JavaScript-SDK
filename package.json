@@ -17,9 +17,9 @@
     "test:e2e": "bun test test/e2e/e2e-pipeline.test.ts",
     "test:sandbox": "bun test/sandbox-verify.ts",
     "typecheck": "tsc --noEmit",
-    "example:bun": "bun run --filter @tracex/example-node-bun start:bun",
-    "example:node": "bun run --filter @tracex/example-node-bun start:node",
-    "example:next": "bun run --filter @tracex/example-nextjs dev"
+    "example:bun": "bun run --filter @tracex-dev/example-node-bun start:bun",
+    "example:node": "bun run --filter @tracex-dev/example-node-bun start:node",
+    "example:next": "bun run --filter @tracex-dev/example-nextjs dev"
   },
   "devDependencies": {
     "@types/bun": "^1.4.3",

@@ -11,17 +11,17 @@ import {
   type ITransport,
   type CrashEventPayload,
   type TransportResponse,
-} from '@tracex/core';
-import { TraceXNodeClient } from '@tracex/node';
+} from '@tracex-dev/core';
+import { TraceXNodeClient } from '@tracex-dev/node';
 import {
   TraceXErrorBoundary,
   TraceXReactClient,
-} from '@tracex/react';
+} from '@tracex-dev/react';
 import {
   withTraceXServerAction,
   withTraceXRoute,
   TraceX as TraceXServer,
-} from '@tracex/nextjs/server';
+} from '@tracex-dev/nextjs/server';
 
 class MockTransport implements ITransport {
   public payloads: CrashEventPayload[] = [];

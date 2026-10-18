@@ -1,5 +1,5 @@
 import React from 'react';
-import { DataScrubber } from '@tracex/core';
+import { DataScrubber } from '@tracex-dev/core';
 import type { BrowserEnvironmentContext } from '../types';
 
 /**

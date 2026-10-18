@@ -8,10 +8,10 @@ const ROOT_DIR = path.resolve(__dirname, '..');
 const TARBALLS_DIR = path.join(ROOT_DIR, 'dist', 'tarballs');
 
 const PACKAGES = [
-  { name: '@tracex/core', dir: path.join(ROOT_DIR, 'packages', 'core') },
-  { name: '@tracex/node', dir: path.join(ROOT_DIR, 'packages', 'node') },
-  { name: '@tracex/react', dir: path.join(ROOT_DIR, 'packages', 'react') },
-  { name: '@tracex/nextjs', dir: path.join(ROOT_DIR, 'packages', 'nextjs') },
+  { name: '@tracex-dev/core', dir: path.join(ROOT_DIR, 'packages', 'core') },
+  { name: '@tracex-dev/node', dir: path.join(ROOT_DIR, 'packages', 'node') },
+  { name: '@tracex-dev/react', dir: path.join(ROOT_DIR, 'packages', 'react') },
+  { name: '@tracex-dev/nextjs', dir: path.join(ROOT_DIR, 'packages', 'nextjs') },
 ];
 
 describe('NPM Release Pipeline & Manifest Invariance', () => {
@@ -20,7 +20,7 @@ describe('NPM Release Pipeline & Manifest Invariance', () => {
     const corePkg = JSON.parse(
       fs.readFileSync(path.join(ROOT_DIR, 'packages', 'core', 'package.json'), 'utf8')
     );
-    expect(corePkg.name).toBe('@tracex/core');
+    expect(corePkg.name).toBe('@tracex-dev/core');
     expect(corePkg.publishConfig?.access).toBe('public');
     expect(corePkg.license).toBe('MIT');
     expect(corePkg.author).toContain('TraceX Platform Team');
@@ -30,7 +30,7 @@ describe('NPM Release Pipeline & Manifest Invariance', () => {
     const nodePkg = JSON.parse(
       fs.readFileSync(path.join(ROOT_DIR, 'packages', 'node', 'package.json'), 'utf8')
     );
-    expect(nodePkg.dependencies?.['@tracex/core']).toBe('workspace:*');
+    expect(nodePkg.dependencies?.['@tracex-dev/core']).toBe('workspace:*');
     expect(nodePkg.publishConfig?.access).toBe('public');
     expect(nodePkg.files).toEqual(['dist', 'README.md', 'LICENSE']);
 
@@ -38,7 +38,7 @@ describe('NPM Release Pipeline & Manifest Invariance', () => {
     const reactPkg = JSON.parse(
       fs.readFileSync(path.join(ROOT_DIR, 'packages', 'react', 'package.json'), 'utf8')
     );
-    expect(reactPkg.dependencies?.['@tracex/core']).toBe('workspace:*');
+    expect(reactPkg.dependencies?.['@tracex-dev/core']).toBe('workspace:*');
     expect(reactPkg.publishConfig?.access).toBe('public');
     expect(reactPkg.files).toEqual(['dist', 'README.md', 'LICENSE']);
 
@@ -46,9 +46,9 @@ describe('NPM Release Pipeline & Manifest Invariance', () => {
     const nextPkg = JSON.parse(
       fs.readFileSync(path.join(ROOT_DIR, 'packages', 'nextjs', 'package.json'), 'utf8')
     );
-    expect(nextPkg.dependencies?.['@tracex/core']).toBe('workspace:*');
-    expect(nextPkg.dependencies?.['@tracex/node']).toBe('workspace:*');
-    expect(nextPkg.dependencies?.['@tracex/react']).toBe('workspace:*');
+    expect(nextPkg.dependencies?.['@tracex-dev/core']).toBe('workspace:*');
+    expect(nextPkg.dependencies?.['@tracex-dev/node']).toBe('workspace:*');
+    expect(nextPkg.dependencies?.['@tracex-dev/react']).toBe('workspace:*');
     expect(nextPkg.publishConfig?.access).toBe('public');
     expect(nextPkg.files).toEqual(['dist', 'README.md', 'LICENSE']);
   });
@@ -63,7 +63,7 @@ describe('NPM Release Pipeline & Manifest Invariance', () => {
 
     // 2. Run packaging engine
     const { versions } = packAllPackages(true);
-    const coreVersion = versions.get('@tracex/core')!;
+    const coreVersion = versions.get('@tracex-dev/core')!;
 
     // 3. Verify on-disk manifests were immediately and identically restored
     for (const pkg of PACKAGES) {
@@ -95,7 +95,7 @@ describe('NPM Release Pipeline & Manifest Invariance', () => {
         if (deps) {
           for (const [depName, version] of Object.entries(deps)) {
             expect(String(version)).not.toContain('workspace:');
-            if (depName.startsWith('@tracex/')) {
+            if (depName.startsWith('@tracex-dev/')) {
               expect(String(version)).toBe(`^${coreVersion}`);
             }
           }

@@ -3,7 +3,7 @@ import { GlobalWindow } from 'happy-dom';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { TraceX, TraceXReactClient, TraceXProvider, useTraceX } from '../src/index';
-import type { ITransport, CrashEventPayload, TransportResponse } from '@tracex/core';
+import type { ITransport, CrashEventPayload, TransportResponse } from '@tracex-dev/core';
 
 class MockTransport implements ITransport {
   public payloads: CrashEventPayload[] = [];

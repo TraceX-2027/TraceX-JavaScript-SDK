@@ -1,4 +1,4 @@
-import { TraceXClient } from '@tracex/core';
+import { TraceXClient } from '@tracex-dev/core';
 import { TraceXNodeOptions } from '../types';
 
 /**

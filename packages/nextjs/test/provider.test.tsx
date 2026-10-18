@@ -2,8 +2,8 @@ import { afterEach, beforeEach, describe, expect, it } from 'bun:test';
 import { GlobalWindow } from 'happy-dom';
 import React, { useState } from 'react';
 import { createRoot, Root } from 'react-dom/client';
-import type { CrashEventPayload, ITransport, TransportResponse } from '@tracex/core';
-import { TraceX, TraceXReactClient } from '@tracex/react';
+import type { CrashEventPayload, ITransport, TransportResponse } from '@tracex-dev/core';
+import { TraceX, TraceXReactClient } from '@tracex-dev/react';
 import { TraceXClientProvider } from '../src/client/provider';
 
 class MockTransport implements ITransport {

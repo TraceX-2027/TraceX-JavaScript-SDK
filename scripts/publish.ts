@@ -15,25 +15,25 @@ interface PackageConfig {
 
 const PACKAGES: PackageConfig[] = [
   {
-    name: '@tracex/core',
+    name: '@tracex-dev/core',
     dir: 'packages/core',
     absDir: path.join(ROOT_DIR, 'packages', 'core'),
     pkgJsonPath: path.join(ROOT_DIR, 'packages', 'core', 'package.json'),
   },
   {
-    name: '@tracex/node',
+    name: '@tracex-dev/node',
     dir: 'packages/node',
     absDir: path.join(ROOT_DIR, 'packages', 'node'),
     pkgJsonPath: path.join(ROOT_DIR, 'packages', 'node', 'package.json'),
   },
   {
-    name: '@tracex/react',
+    name: '@tracex-dev/react',
     dir: 'packages/react',
     absDir: path.join(ROOT_DIR, 'packages', 'react'),
     pkgJsonPath: path.join(ROOT_DIR, 'packages', 'react', 'package.json'),
   },
   {
-    name: '@tracex/nextjs',
+    name: '@tracex-dev/nextjs',
     dir: 'packages/nextjs',
     absDir: path.join(ROOT_DIR, 'packages', 'nextjs'),
     pkgJsonPath: path.join(ROOT_DIR, 'packages', 'nextjs', 'package.json'),
@@ -174,7 +174,7 @@ export function verifyTarball(tarballPath: string, expectedPkgName: string, expe
             `Verification FAILED: ${tarballPath} contains forbidden "workspace:" reference in ${depKey}['${depName}']: "${version}"`
           );
         }
-        if (depName.startsWith('@tracex/')) {
+        if (depName.startsWith('@tracex-dev/')) {
           if (!String(version).startsWith('^')) {
             throw new Error(`Verification FAILED: ${depName} version "${version}" does not start with "^"`);
           }

@@ -1,5 +1,5 @@
-import type { BreadcrumbInput } from '@tracex/core';
-import type { TraceXNodeClient } from '@tracex/node';
+import type { BreadcrumbInput } from '@tracex-dev/core';
+import type { TraceXNodeClient } from '@tracex-dev/node';
 import { TraceXServer } from './server/tracex-server';
 import type { TraceXNextOptions } from './types/index';
 

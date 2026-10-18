@@ -1,4 +1,4 @@
-import { DataScrubber } from '@tracex/core';
+import { DataScrubber } from '@tracex-dev/core';
 import type { RouteHandler, TraceXRouteOptions } from '../types/index';
 import { TraceX } from './tracex-server';
 

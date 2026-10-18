@@ -1,4 +1,4 @@
-import { TraceXClient } from '@tracex/core';
+import { TraceXClient } from '@tracex-dev/core';
 import { ServerEnvironmentProvider, detectRuntime } from '../integrations/environment';
 import { HttpBreadcrumbInterceptor } from '../integrations/http-instrumentation';
 import { ServerRuntimeListener } from '../integrations/error-listeners';

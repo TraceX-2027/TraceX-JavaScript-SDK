@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { TraceX } from '@tracex/nextjs/client';
+import { TraceX } from '@tracex-dev/nextjs/client';
 import { triggerServerActionFailure } from './actions';
 
 interface BreadcrumbItem {

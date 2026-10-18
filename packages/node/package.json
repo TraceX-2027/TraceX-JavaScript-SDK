@@ -1,5 +1,5 @@
 {
-  "name": "@tracex/node",
+  "name": "@tracex-dev/node",
   "version": "0.1.0",
   "description": "TraceX SDK for Node.js and Bun server environments",
   "main": "./dist/index.cjs",
@@ -54,7 +54,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@tracex/core": "workspace:*"
+    "@tracex-dev/core": "workspace:*"
   },
   "devDependencies": {
     "tsup": "^8.3.5",

@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it } from 'bun:test';
 import http from 'node:http';
-import { CrashEventPayload } from '@tracex/core';
+import { CrashEventPayload } from '@tracex-dev/core';
 import { TraceX, TraceXNodeClient } from '../src/index';
 
 describe('TraceXNodeClient & TraceX Facade', () => {

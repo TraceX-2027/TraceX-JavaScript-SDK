@@ -1,4 +1,4 @@
-import { EnvironmentContext, TraceXOptions } from '@tracex/core';
+import { EnvironmentContext, TraceXOptions } from '@tracex-dev/core';
 
 /**
  * Server environment context capturing Node.js / Bun runtime and OS forensics.

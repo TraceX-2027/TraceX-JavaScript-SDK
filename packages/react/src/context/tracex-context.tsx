@@ -1,7 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useMemo, useCallback } from 'react';
-import type { BreadcrumbInput } from '@tracex/core';
+import type { BreadcrumbInput } from '@tracex-dev/core';
 import type { TraceXReactClient } from '../client/react-client';
 import { TraceX } from '../index';
 

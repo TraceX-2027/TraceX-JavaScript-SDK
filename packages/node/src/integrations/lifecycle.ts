@@ -1,4 +1,4 @@
-import { TraceXClient } from '@tracex/core';
+import { TraceXClient } from '@tracex-dev/core';
 
 /**
  * Manages Node.js process lifecycle hooks, ensuring pending telemetry is flushed

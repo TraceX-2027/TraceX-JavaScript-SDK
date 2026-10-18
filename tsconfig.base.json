@@ -14,12 +14,12 @@
     "jsx": "react-jsx",
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "paths": {
-      "@tracex/core": ["./packages/core/src/index.ts"],
-      "@tracex/node": ["./packages/node/src/index.ts"],
-      "@tracex/react": ["./packages/react/src/index.ts"],
-      "@tracex/nextjs": ["./packages/nextjs/src/index.ts"],
-      "@tracex/nextjs/client": ["./packages/nextjs/src/client.ts"],
-      "@tracex/nextjs/server": ["./packages/nextjs/src/server.ts"]
+      "@tracex-dev/core": ["./packages/core/src/index.ts"],
+      "@tracex-dev/node": ["./packages/node/src/index.ts"],
+      "@tracex-dev/react": ["./packages/react/src/index.ts"],
+      "@tracex-dev/nextjs": ["./packages/nextjs/src/index.ts"],
+      "@tracex-dev/nextjs/client": ["./packages/nextjs/src/client.ts"],
+      "@tracex-dev/nextjs/server": ["./packages/nextjs/src/server.ts"]
     }
   }
 }

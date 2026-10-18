@@ -1,4 +1,4 @@
-import type { EnvironmentContext } from '@tracex/core';
+import type { EnvironmentContext } from '@tracex-dev/core';
 import type { VercelEnvironmentContext } from '../types/index';
 
 /**

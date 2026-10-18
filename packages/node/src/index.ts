@@ -7,14 +7,14 @@ import type {
   ITransport,
   TraceXOptions,
   HttpDispatcherOptions,
-} from '@tracex/core';
+} from '@tracex-dev/core';
 import {
   BreadcrumbRingBuffer,
   DataScrubber,
   HttpTelemetryDispatcher,
   DefaultFetchTransport,
   TraceXClient,
-} from '@tracex/core';
+} from '@tracex-dev/core';
 import { TraceXNodeClient } from './client/node-client';
 import type { TraceXNodeOptions, ServerEnvironmentContext } from './types';
 

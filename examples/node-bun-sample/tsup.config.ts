@@ -7,5 +7,5 @@ export default defineConfig({
   clean: true,
   sourcemap: true,
   target: 'node18',
-  noExternal: ['@tracex/core', '@tracex/node'],
+  noExternal: ['@tracex-dev/core', '@tracex-dev/node'],
 });

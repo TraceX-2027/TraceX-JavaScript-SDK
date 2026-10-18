@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it } from 'bun:test';
-import type { CrashEventPayload, ITransport, TransportResponse } from '@tracex/core';
+import type { CrashEventPayload, ITransport, TransportResponse } from '@tracex-dev/core';
 import { VercelEnvironmentProvider } from '../src/server/environment';
 import { TraceX } from '../src/server/tracex-server';
 

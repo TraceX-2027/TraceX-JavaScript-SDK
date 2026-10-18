@@ -1,6 +1,6 @@
-# TraceX Next.js 16 App Router Sample (`@tracex/example-nextjs`)
+# TraceX Next.js 16 App Router Sample (`@tracex-dev/example-nextjs`)
 
-A full-stack reference application demonstrating production crash telemetry and observability in **Next.js 16 App Router** using `@tracex/nextjs`.
+A full-stack reference application demonstrating production crash telemetry and observability in **Next.js 16 App Router** using `@tracex-dev/nextjs`.
 
 ---
 

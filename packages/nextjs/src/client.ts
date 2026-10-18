@@ -1,11 +1,11 @@
 'use client';
 
-import type { BreadcrumbInput } from '@tracex/core';
+import type { BreadcrumbInput } from '@tracex-dev/core';
 import {
   TraceX,
   type TraceXReactClient,
   type TraceXReactOptions,
-} from '@tracex/react';
+} from '@tracex-dev/react';
 
 // Export client components and helpers
 export {
@@ -23,10 +23,10 @@ export {
   useCaptureException,
   useAddBreadcrumb,
   TraceXReactClient,
-} from '@tracex/react';
+} from '@tracex-dev/react';
 
 // Export client TraceX facade
-export { TraceX } from '@tracex/react';
+export { TraceX } from '@tracex-dev/react';
 
 // Convenience functional helpers
 export const init = (options: TraceXReactOptions): TraceXReactClient =>

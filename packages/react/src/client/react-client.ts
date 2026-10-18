@@ -1,4 +1,4 @@
-import { TraceXClient } from '@tracex/core';
+import { TraceXClient } from '@tracex-dev/core';
 import { BrowserEnvironmentProvider } from '../integrations/environment';
 import { BrowserErrorListeners } from '../integrations/error-listeners';
 import { DOMClickTracker } from '../integrations/dom-tracker';

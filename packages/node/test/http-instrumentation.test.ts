@@ -1,7 +1,7 @@
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it } from 'bun:test';
 import http from 'node:http';
 import https from 'node:https';
-import { TraceXClient } from '@tracex/core';
+import { TraceXClient } from '@tracex-dev/core';
 import {
   HttpBreadcrumbInterceptor,
   isInternalTraceXRequest,

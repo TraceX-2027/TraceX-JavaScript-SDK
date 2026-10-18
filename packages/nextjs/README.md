@@ -1,7 +1,7 @@
-# `@tracex/nextjs`
+# `@tracex-dev/nextjs`
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![npm version](https://img.shields.io/npm/v/@tracex/nextjs.svg)](https://www.npmjs.com/package/@tracex/nextjs)
+[![npm version](https://img.shields.io/npm/v/@tracex-dev/nextjs.svg)](https://www.npmjs.com/package/@tracex-dev/nextjs)
 
 Full-stack Crash Telemetry and Observability SDK for **Next.js** (supporting **App Router** and **Pages Router**).
 
@@ -11,7 +11,7 @@ Provides universal isomorphic routing, Client Component error boundaries, Server
 
 ## Features
 
-- **Isomorphic Architecture**: Dynamically routes calls to `@tracex/react` in browser hydration and `@tracex/node` on the server runtime.
+- **Isomorphic Architecture**: Dynamically routes calls to `@tracex-dev/react` in browser hydration and `@tracex-dev/node` on the server runtime.
 - **`<TraceXClientProvider>`**: Drop-in Client Component for `app/layout.tsx` combining context propagation and React error boundaries with hydration safety.
 - **`withTraceXServerAction`**: Wraps Next.js Server Actions to track execution latency, sanitize sensitive `FormData` fields (passwords, tokens), capture crash telemetry, and rethrow original errors.
 - **`withTraceXRoute`**: Wraps App Router API Route Handlers (`app/api/**/route.ts`). Intercepts unhandled exceptions and formats compliant RFC 7807 Problem Details responses (HTTP 500) containing correlating `trace_id`.
@@ -23,9 +23,9 @@ Provides universal isomorphic routing, Client Component error boundaries, Server
 ## Installation
 
 ```bash
-bun add @tracex/nextjs
+bun add @tracex-dev/nextjs
 # or
-npm install @tracex/nextjs
+npm install @tracex-dev/nextjs
 ```
 
 ---
@@ -37,7 +37,7 @@ npm install @tracex/nextjs
 Wrap your application in `<TraceXClientProvider>`:
 
 ```tsx
-import { TraceXClientProvider } from '@tracex/nextjs/client';
+import { TraceXClientProvider } from '@tracex-dev/nextjs/client';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -64,7 +64,7 @@ Wrap Server Actions with `withTraceXServerAction`:
 ```typescript
 'use server';
 
-import { withTraceXServerAction } from '@tracex/nextjs/server';
+import { withTraceXServerAction } from '@tracex-dev/nextjs/server';
 
 export const submitOrder = withTraceXServerAction('submitOrder', async (formData: FormData) => {
   // Sensitive FormData fields (password, token, etc.) are automatically scrubbed in telemetry
@@ -82,7 +82,7 @@ export const submitOrder = withTraceXServerAction('submitOrder', async (formData
 Wrap API Route Handlers with `withTraceXRoute`:
 
 ```typescript
-import { withTraceXRoute } from '@tracex/nextjs/server';
+import { withTraceXRoute } from '@tracex-dev/nextjs/server';
 
 export const GET = withTraceXRoute(async (request: Request) => {
   throw new Error('Database pool exhausted during search');
@@ -110,7 +110,7 @@ Content-Type: application/problem+json
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { captureNextGlobalError } from '@tracex/nextjs/client';
+import { captureNextGlobalError } from '@tracex-dev/nextjs/client';
 
 export default function GlobalError({
   error,
@@ -158,9 +158,9 @@ Extends core and node options with Next.js specific settings:
 
 ## Subpath Imports
 
-- `@tracex/nextjs`: Isomorphic universal exports.
-- `@tracex/nextjs/client`: Client components (`<TraceXClientProvider>`, hooks, `captureNextGlobalError`).
-- `@tracex/nextjs/server`: Server-only utilities (`withTraceXServerAction`, `withTraceXRoute`).
+- `@tracex-dev/nextjs`: Isomorphic universal exports.
+- `@tracex-dev/nextjs/client`: Client components (`<TraceXClientProvider>`, hooks, `captureNextGlobalError`).
+- `@tracex-dev/nextjs/server`: Server-only utilities (`withTraceXServerAction`, `withTraceXRoute`).
 
 ---
 

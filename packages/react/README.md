@@ -1,7 +1,7 @@
-# `@tracex/react`
+# `@tracex-dev/react`
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![npm version](https://img.shields.io/npm/v/@tracex/react.svg)](https://www.npmjs.com/package/@tracex/react)
+[![npm version](https://img.shields.io/npm/v/@tracex-dev/react.svg)](https://www.npmjs.com/package/@tracex-dev/react)
 
 TraceX Crash Observability, DOM Interaction Tracking, and Error Boundary SDK for **React** (supports React 16.8+, React 18, and React 19).
 
@@ -23,9 +23,9 @@ Captures unhandled render crashes, records user click breadcrumbs with strict PI
 ## Installation
 
 ```bash
-bun add @tracex/react
+bun add @tracex-dev/react
 # or
-npm install @tracex/react
+npm install @tracex-dev/react
 ```
 
 ---
@@ -37,7 +37,7 @@ npm install @tracex/react
 ```tsx
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { TraceX, TraceXProvider, TraceXErrorBoundary } from '@tracex/react';
+import { TraceX, TraceXProvider, TraceXErrorBoundary } from '@tracex-dev/react';
 
 // Initialize the global React client singleton
 TraceX.init({
@@ -91,7 +91,7 @@ Catches exceptions thrown anywhere in its child component tree.
 ### `withTraceXErrorBoundary` HOC
 
 ```tsx
-import { withTraceXErrorBoundary } from '@tracex/react';
+import { withTraceXErrorBoundary } from '@tracex-dev/react';
 
 const ProtectedProfile = withTraceXErrorBoundary(UserProfile, {
   fallback: <div>Failed to load profile.</div>,
@@ -101,7 +101,7 @@ const ProtectedProfile = withTraceXErrorBoundary(UserProfile, {
 ### React Hooks
 
 ```tsx
-import { useTraceX, useCaptureException, useAddBreadcrumb } from '@tracex/react';
+import { useTraceX, useCaptureException, useAddBreadcrumb } from '@tracex-dev/react';
 
 export function CheckoutButton() {
   const captureException = useCaptureException();

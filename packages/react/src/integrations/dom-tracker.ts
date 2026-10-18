@@ -1,4 +1,4 @@
-import { DataScrubber } from '@tracex/core';
+import { DataScrubber } from '@tracex-dev/core';
 import type { TraceXReactClient } from '../client/react-client';
 
 /**
