@@ -1,5 +1,5 @@
 {
-  "name": "@tracex/node",
+  "name": "@tracex-dev/node",
   "version": "0.1.0",
   "description": "TraceX SDK for Node.js and Bun server environments",
   "main": "./dist/index.cjs",
@@ -18,15 +18,43 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TraceX-2027/TraceX-JavaScript-SDK.git",
+    "directory": "packages/node"
+  },
+  "homepage": "https://github.com/TraceX-2027/TraceX-JavaScript-SDK#readme",
+  "bugs": {
+    "url": "https://github.com/TraceX-2027/TraceX-JavaScript-SDK/issues"
+  },
+  "author": "TraceX Platform Team <team@tracex.dev>",
+  "license": "MIT",
+  "keywords": [
+    "tracex",
+    "node",
+    "bun",
+    "server",
+    "telemetry",
+    "tracing",
+    "monitoring",
+    "sdk",
+    "error-tracking",
+    "apm"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsup",
     "test": "bun test",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@tracex/core": "workspace:*"
+    "@tracex-dev/core": "workspace:*"
   },
   "devDependencies": {
     "tsup": "^8.3.5",

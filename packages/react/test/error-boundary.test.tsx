@@ -9,7 +9,7 @@ import {
 import { TraceXProvider } from '../src/context/tracex-context';
 import { TraceXReactClient } from '../src/client/react-client';
 import { TraceX } from '../src/index';
-import type { ITransport, CrashEventPayload, TransportResponse } from '@tracex/core';
+import type { ITransport, CrashEventPayload, TransportResponse } from '@tracex-dev/core';
 
 class MockTransport implements ITransport {
   public payloads: CrashEventPayload[] = [];

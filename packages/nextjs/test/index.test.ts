@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it } from 'bun:test';
 import { GlobalWindow } from 'happy-dom';
-import type { CrashEventPayload, ITransport, TransportResponse } from '@tracex/core';
-import { TraceXReactClient } from '@tracex/react';
+import type { CrashEventPayload, ITransport, TransportResponse } from '@tracex-dev/core';
+import { TraceXReactClient } from '@tracex-dev/react';
 import { TraceXServer } from '../src/server/tracex-server';
 import {
   TraceX,

@@ -1,8 +1,8 @@
-import type { BreadcrumbInput, TraceXClient } from '@tracex/core';
+import type { BreadcrumbInput, TraceXClient } from '@tracex-dev/core';
 import {
   TraceX as TraceXReact,
   type TraceXReactClient,
-} from '@tracex/react';
+} from '@tracex-dev/react';
 import {
   TraceXServer,
 } from './server/tracex-server';
@@ -121,7 +121,7 @@ export {
   useTraceX,
   useCaptureException,
   useAddBreadcrumb,
-} from '@tracex/react';
+} from '@tracex-dev/react';
 
 // Re-export all types
 export * from './types/index';

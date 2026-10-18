@@ -17,13 +17,13 @@
       },
     },
     "examples/nextjs-app-router-sample": {
-      "name": "@tracex/example-nextjs",
+      "name": "@tracex-dev/example-nextjs",
       "version": "0.1.0",
       "dependencies": {
-        "@tracex/core": "workspace:*",
-        "@tracex/nextjs": "workspace:*",
-        "@tracex/node": "workspace:*",
-        "@tracex/react": "workspace:*",
+        "@tracex-dev/core": "workspace:*",
+        "@tracex-dev/nextjs": "workspace:*",
+        "@tracex-dev/node": "workspace:*",
+        "@tracex-dev/react": "workspace:*",
         "next": "^16.4.2",
         "react": "^19.3.1",
         "react-dom": "^19.3.1",
@@ -39,11 +39,11 @@
       },
     },
     "examples/node-bun-sample": {
-      "name": "@tracex/example-node-bun",
+      "name": "@tracex-dev/example-node-bun",
       "version": "0.1.0",
       "dependencies": {
-        "@tracex/core": "workspace:*",
-        "@tracex/node": "workspace:*",
+        "@tracex-dev/core": "workspace:*",
+        "@tracex-dev/node": "workspace:*",
       },
       "devDependencies": {
         "@types/node": "^22.10.1",
@@ -52,7 +52,7 @@
       },
     },
     "packages/core": {
-      "name": "@tracex/core",
+      "name": "@tracex-dev/core",
       "version": "0.1.0",
       "devDependencies": {
         "tsup": "^8.3.5",
@@ -60,12 +60,12 @@
       },
     },
     "packages/nextjs": {
-      "name": "@tracex/nextjs",
+      "name": "@tracex-dev/nextjs",
       "version": "0.1.0",
       "dependencies": {
-        "@tracex/core": "workspace:*",
-        "@tracex/node": "workspace:*",
-        "@tracex/react": "workspace:*",
+        "@tracex-dev/core": "workspace:*",
+        "@tracex-dev/node": "workspace:*",
+        "@tracex-dev/react": "workspace:*",
       },
       "devDependencies": {
         "@types/node": "^22.10.1",
@@ -88,10 +88,10 @@
       ],
     },
     "packages/node": {
-      "name": "@tracex/node",
+      "name": "@tracex-dev/node",
       "version": "0.1.0",
       "dependencies": {
-        "@tracex/core": "workspace:*",
+        "@tracex-dev/core": "workspace:*",
       },
       "devDependencies": {
         "tsup": "^8.3.5",
@@ -99,10 +99,10 @@
       },
     },
     "packages/react": {
-      "name": "@tracex/react",
+      "name": "@tracex-dev/react",
       "version": "0.1.0",
       "dependencies": {
-        "@tracex/core": "workspace:*",
+        "@tracex-dev/core": "workspace:*",
       },
       "devDependencies": {
         "@types/react": "^19.3.0",
@@ -319,17 +319,17 @@
 
     "@swc/helpers": ["@swc/helpers@0.5.23", "", { "dependencies": { "tslib": "^2.8.0" } }, "sha512-5lSsMOTXURePglDfvuAQUqkGek9Hg2kksOYay2m0+XR++b2NWYL/4sWyuvVBIs8oKnJaxkdi9whaL/sqN13afw=="],
 
-    "@tracex/core": ["@tracex/core@workspace:packages/core"],
+    "@tracex-dev/core": ["@tracex-dev/core@workspace:packages/core"],
 
-    "@tracex/example-nextjs": ["@tracex/example-nextjs@workspace:examples/nextjs-app-router-sample"],
+    "@tracex-dev/example-nextjs": ["@tracex-dev/example-nextjs@workspace:examples/nextjs-app-router-sample"],
 
-    "@tracex/example-node-bun": ["@tracex/example-node-bun@workspace:examples/node-bun-sample"],
+    "@tracex-dev/example-node-bun": ["@tracex-dev/example-node-bun@workspace:examples/node-bun-sample"],
 
-    "@tracex/nextjs": ["@tracex/nextjs@workspace:packages/nextjs"],
+    "@tracex-dev/nextjs": ["@tracex-dev/nextjs@workspace:packages/nextjs"],
 
-    "@tracex/node": ["@tracex/node@workspace:packages/node"],
+    "@tracex-dev/node": ["@tracex-dev/node@workspace:packages/node"],
 
-    "@tracex/react": ["@tracex/react@workspace:packages/react"],
+    "@tracex-dev/react": ["@tracex-dev/react@workspace:packages/react"],
 
     "@types/bun": ["@types/bun@1.4.3", "", { "dependencies": { "bun-types": "1.4.3" } }, "sha512-N67Pqy8JXbAY/j0tNraS3V5mubGvc6rrrNDmDCtZLlFzccbUJPDb0tvgUBC5q4m8ybkP93Jcn1QB+RYQ6PvBhw=="],
 

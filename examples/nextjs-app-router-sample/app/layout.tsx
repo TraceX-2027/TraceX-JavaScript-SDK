@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import './globals.css';
-import { TraceXClientProvider } from '@tracex/nextjs/client';
+import { TraceXClientProvider } from '@tracex-dev/nextjs/client';
 
 export const metadata: Metadata = {
   title: 'TraceX Next.js 16 Showcase | Dark Developer Dashboard',

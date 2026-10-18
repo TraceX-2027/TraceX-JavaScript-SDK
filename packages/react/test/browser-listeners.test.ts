@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, afterEach } from 'bun:test';
 import { GlobalWindow } from 'happy-dom';
 import { BrowserErrorListeners } from '../src/integrations/error-listeners';
 import { TraceXReactClient } from '../src/client/react-client';
-import type { ITransport, CrashEventPayload, TransportResponse } from '@tracex/core';
+import type { ITransport, CrashEventPayload, TransportResponse } from '@tracex-dev/core';
 
 class MockTransport implements ITransport {
   public payloads: CrashEventPayload[] = [];

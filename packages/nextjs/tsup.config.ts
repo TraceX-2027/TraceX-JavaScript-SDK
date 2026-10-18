@@ -11,7 +11,7 @@ export default defineConfig({
   sourcemap: true,
   clean: true,
   minify: false,
-  external: ['react', 'react-dom', 'next', '@tracex/core', '@tracex/node', '@tracex/react'],
+  external: ['react', 'react-dom', 'next', '@tracex-dev/core', '@tracex-dev/node', '@tracex-dev/react'],
   outExtension({ format }) {
     return {
       js: format === 'cjs' ? '.cjs' : '.js',

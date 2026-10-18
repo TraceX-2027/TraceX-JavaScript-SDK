@@ -9,14 +9,14 @@ import type {
   ITransport,
   TraceXOptions,
   HttpDispatcherOptions,
-} from '@tracex/core';
+} from '@tracex-dev/core';
 import {
   BreadcrumbRingBuffer,
   DataScrubber,
   HttpTelemetryDispatcher,
   DefaultFetchTransport,
   TraceXClient,
-} from '@tracex/core';
+} from '@tracex-dev/core';
 import { TraceXReactClient } from './client/react-client';
 import type {
   TraceXReactOptions,

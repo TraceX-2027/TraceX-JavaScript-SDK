@@ -1,5 +1,5 @@
 {
-  "name": "@tracex/nextjs",
+  "name": "@tracex-dev/nextjs",
   "version": "0.1.0",
   "description": "TraceX SDK for Next.js full-stack applications",
   "main": "./dist/index.cjs",
@@ -23,17 +23,46 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TraceX-2027/TraceX-JavaScript-SDK.git",
+    "directory": "packages/nextjs"
+  },
+  "homepage": "https://github.com/TraceX-2027/TraceX-JavaScript-SDK#readme",
+  "bugs": {
+    "url": "https://github.com/TraceX-2027/TraceX-JavaScript-SDK/issues"
+  },
+  "author": "TraceX Platform Team <team@tracex.dev>",
+  "license": "MIT",
+  "keywords": [
+    "tracex",
+    "nextjs",
+    "react",
+    "app-router",
+    "server-actions",
+    "route-handlers",
+    "telemetry",
+    "tracing",
+    "monitoring",
+    "sdk",
+    "error-tracking"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsup",
     "test": "bun test",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@tracex/core": "workspace:*",
-    "@tracex/node": "workspace:*",
-    "@tracex/react": "workspace:*"
+    "@tracex-dev/core": "workspace:*",
+    "@tracex-dev/node": "workspace:*",
+    "@tracex-dev/react": "workspace:*"
   },
   "peerDependencies": {
     "next": ">=13.0.0",

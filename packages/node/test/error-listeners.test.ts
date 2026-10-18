@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it } from 'bun:test';
-import { CrashEventPayload, TraceXClient } from '@tracex/core';
+import { CrashEventPayload, TraceXClient } from '@tracex-dev/core';
 import { ServerRuntimeListener } from '../src/integrations/error-listeners';
 
 describe('ServerRuntimeListener', () => {

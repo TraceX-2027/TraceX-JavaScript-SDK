@@ -1,4 +1,4 @@
-import { DataScrubber } from '@tracex/core';
+import { DataScrubber } from '@tracex-dev/core';
 import { TraceX } from './tracex-server';
 
 function isFormData(val: unknown): val is FormData {

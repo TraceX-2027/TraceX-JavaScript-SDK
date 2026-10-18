@@ -1,5 +1,5 @@
 import type React from 'react';
-import type { EnvironmentContext, TraceXOptions } from '@tracex/core';
+import type { EnvironmentContext, TraceXOptions } from '@tracex-dev/core';
 import type { TraceXReactClient } from '../client/react-client';
 
 /**

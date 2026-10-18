@@ -1,5 +1,5 @@
 {
-  "name": "@tracex/example-node-bun",
+  "name": "@tracex-dev/example-node-bun",
   "version": "0.1.0",
   "private": true,
   "description": "TraceX Dual-Runtime Node.js and Bun CLI Showcase Application",
@@ -12,8 +12,8 @@
     "start:interactive": "bun run src/index.ts --interactive"
   },
   "dependencies": {
-    "@tracex/core": "workspace:*",
-    "@tracex/node": "workspace:*"
+    "@tracex-dev/core": "workspace:*",
+    "@tracex-dev/node": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^22.10.1",

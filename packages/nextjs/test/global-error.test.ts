@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it } from 'bun:test';
-import type { CrashEventPayload, ITransport, TransportResponse } from '@tracex/core';
-import { TraceX } from '@tracex/react';
+import type { CrashEventPayload, ITransport, TransportResponse } from '@tracex-dev/core';
+import { TraceX } from '@tracex-dev/react';
 import { captureNextGlobalError } from '../src/client/global-error';
 
 class MockTransport implements ITransport {

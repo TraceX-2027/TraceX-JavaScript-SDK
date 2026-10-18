@@ -1,6 +1,10 @@
 # TraceX JavaScript & TypeScript SDK
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![npm @tracex-dev/core](https://img.shields.io/npm/v/@tracex-dev/core.svg?label=@tracex-dev/core)](https://www.npmjs.com/package/@tracex-dev/core)
+[![npm @tracex-dev/node](https://img.shields.io/npm/v/@tracex-dev/node.svg?label=@tracex-dev/node)](https://www.npmjs.com/package/@tracex-dev/node)
+[![npm @tracex-dev/react](https://img.shields.io/npm/v/@tracex-dev/react.svg?label=@tracex-dev/react)](https://www.npmjs.com/package/@tracex-dev/react)
+[![npm @tracex-dev/nextjs](https://img.shields.io/npm/v/@tracex-dev/nextjs.svg?label=@tracex-dev/nextjs)](https://www.npmjs.com/package/@tracex-dev/nextjs)
 [![Runtime: Node.js >= 18](https://img.shields.io/badge/Node.js-%3E%3D18.0.0-green.svg)](https://nodejs.org)
 [![Runtime: Bun >= 1.0](https://img.shields.io/badge/Bun-%3E%3D1.0.0-orange.svg)](https://bun.sh)
 [![Next.js: App Router](https://img.shields.io/badge/Next.js-App%20Router-black.svg)](https://nextjs.org)
@@ -21,12 +25,12 @@ flowchart TD
     end
 
     subgraph PackagesLayer["TraceX Monorepo Packages"]
-        R1["@tracex/react\nDOM Clicks • SPA Nav • ErrorBoundary"]
-        N1["@tracex/nextjs\nServer Actions • Routes • ClientProvider"]
-        S1["@tracex/node\nRuntime Detect • HTTP Patch • Lifecycle"]
+        R1["@tracex-dev/react\nDOM Clicks • SPA Nav • ErrorBoundary"]
+        N1["@tracex-dev/nextjs\nServer Actions • Routes • ClientProvider"]
+        S1["@tracex-dev/node\nRuntime Detect • HTTP Patch • Lifecycle"]
     end
 
-    subgraph CoreEngine["@tracex/core Engine"]
+    subgraph CoreEngine["@tracex-dev/core Engine"]
         CB["BreadcrumbRingBuffer\nFIFO Monotonic (50 Cap)"]
         DS["DataScrubber\nTokens • Passwords • Luhn Cards"]
         HD["HttpTelemetryDispatcher\nNon-blocking Queue • 429 Retry-After"]
@@ -53,12 +57,12 @@ flowchart TD
 
 | Package | Runtime Target | Version | Description |
 |---|---|---|---|
-| [`@tracex/core`](./packages/core) | Isomorphic (Browser, Node, Bun, Edge) | `0.1.0` | Core telemetry engine: FIFO ring buffer, PII scrubber, 429 backoff dispatcher. |
-| [`@tracex/node`](./packages/node) | Node.js `>=18.0.0`, Bun | `0.1.0` | Server SDK: Uncaught errors, HTTP client breadcrumbs, process lifecycle. |
-| [`@tracex/react`](./packages/react) | Browser, React `>=16.8.0`, React 18, React 19 | `0.1.0` | Client SDK: `<TraceXErrorBoundary>`, DOM click tracking, SPA navigation. |
-| [`@tracex/nextjs`](./packages/nextjs) | Next.js App Router & Pages Router | `0.1.0` | Full-stack SDK: `withTraceXServerAction`, `withTraceXRoute`, `<TraceXClientProvider>`. |
-| [`@tracex/example-node-bun`](./examples/node-bun-sample) | Node.js & Bun CLI | `0.1.0` | Dual-runtime showcase application with automated walkthrough & interactive menu. |
-| [`@tracex/example-nextjs`](./examples/nextjs-app-router-sample) | Next.js 16 App Router | `0.1.0` | Dark-themed developer dashboard testbed for client, action, and route crashes. |
+| [`@tracex-dev/core`](./packages/core) | Isomorphic (Browser, Node, Bun, Edge) | `0.1.0` | Core telemetry engine: FIFO ring buffer, PII scrubber, 429 backoff dispatcher. |
+| [`@tracex-dev/node`](./packages/node) | Node.js `>=18.0.0`, Bun | `0.1.0` | Server SDK: Uncaught errors, HTTP client breadcrumbs, process lifecycle. |
+| [`@tracex-dev/react`](./packages/react) | Browser, React `>=16.8.0`, React 18, React 19 | `0.1.0` | Client SDK: `<TraceXErrorBoundary>`, DOM click tracking, SPA navigation. |
+| [`@tracex-dev/nextjs`](./packages/nextjs) | Next.js App Router & Pages Router | `0.1.0` | Full-stack SDK: `withTraceXServerAction`, `withTraceXRoute`, `<TraceXClientProvider>`. |
+| [`@tracex-dev/example-node-bun`](./examples/node-bun-sample) | Node.js & Bun CLI | `0.1.0` | Dual-runtime showcase application with automated walkthrough & interactive menu. |
+| [`@tracex-dev/example-nextjs`](./examples/nextjs-app-router-sample) | Next.js 16 App Router | `0.1.0` | Dark-themed developer dashboard testbed for client, action, and route crashes. |
 
 ---
 
@@ -70,16 +74,16 @@ Install the package suited for your application:
 
 ```bash
 # For Next.js full-stack applications:
-bun add @tracex/nextjs
-# or: npm install @tracex/nextjs
+bun add @tracex-dev/nextjs
+# or: npm install @tracex-dev/nextjs
 
 # For React browser single-page applications:
-bun add @tracex/react
-# or: npm install @tracex/react
+bun add @tracex-dev/react
+# or: npm install @tracex-dev/react
 
 # For Node.js or Bun backend servers:
-bun add @tracex/node
-# or: npm install @tracex/node
+bun add @tracex-dev/node
+# or: npm install @tracex-dev/node
 ```
 
 ---
@@ -91,7 +95,7 @@ bun add @tracex/node
 Wrap your application in `<TraceXClientProvider>` to establish client error boundaries and telemetry listeners:
 
 ```tsx
-import { TraceXClientProvider } from '@tracex/nextjs/client';
+import { TraceXClientProvider } from '@tracex-dev/nextjs/client';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -118,7 +122,7 @@ Wrap Server Actions with `withTraceXServerAction` to automatically record durati
 ```typescript
 'use server';
 
-import { withTraceXServerAction } from '@tracex/nextjs/server';
+import { withTraceXServerAction } from '@tracex-dev/nextjs/server';
 
 export const checkoutAction = withTraceXServerAction('checkoutAction', async (formData: FormData) => {
   // Passwords, bearer tokens, and credentials in formData are scrubbed automatically in telemetry
@@ -135,7 +139,7 @@ export const checkoutAction = withTraceXServerAction('checkoutAction', async (fo
 Wrap route handlers with `withTraceXRoute` to format unhandled exceptions into RFC 7807 JSON responses:
 
 ```typescript
-import { withTraceXRoute } from '@tracex/nextjs/server';
+import { withTraceXRoute } from '@tracex-dev/nextjs/server';
 
 export const GET = withTraceXRoute(async (request: Request) => {
   throw new Error('Database connection pool exhausted');
@@ -151,7 +155,7 @@ Initialize TraceX and wrap component subtrees with `<TraceXErrorBoundary>`:
 ```tsx
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { TraceX, TraceXProvider, TraceXErrorBoundary } from '@tracex/react';
+import { TraceX, TraceXProvider, TraceXErrorBoundary } from '@tracex-dev/react';
 
 // 1. Initialize client singleton
 TraceX.init({
@@ -185,7 +189,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 ### 4. Node.js & Bun Backend Integration
 
 ```typescript
-import { TraceX } from '@tracex/node';
+import { TraceX } from '@tracex-dev/node';
 
 // Initialize singleton with automatic runtime detection
 TraceX.init({
@@ -253,7 +257,7 @@ bun run example:node
 
 Launch interactive crash menu:
 ```bash
-bun run --filter @tracex/example-node-bun start:interactive
+bun run --filter @tracex-dev/example-node-bun start:interactive
 ```
 
 ### 2. Next.js 16 App Router Sample (`examples/nextjs-app-router-sample`)
@@ -265,7 +269,7 @@ bun run example:next
 
 Build and test production Next.js output:
 ```bash
-bun run --filter @tracex/example-nextjs build
+bun run --filter @tracex-dev/example-nextjs build
 ```
 
 ---
@@ -273,7 +277,7 @@ bun run --filter @tracex/example-nextjs build
 ## Development & Testing Commands
 
 ```bash
-# Execute entire test suite (176 unit and cross-package E2E tests)
+# Execute entire test suite (178 unit and cross-package E2E tests)
 bun test
 
 # Execute E2E integration test pipeline only
@@ -284,7 +288,35 @@ bun run typecheck
 
 # Build all packages and sample applications across the monorepo
 bun run build
+
+# Package all 4 SDK tarballs with atomic workspace:* to semver replacement
+bun run pack:all
+
+# Run automated external consumer sandbox verification (clean npm install, tsc, ESM/CJS runtimes)
+bun run test:sandbox
+
+# Perform full release dry-run pipeline across all packages (gates + npm publish --dry-run)
+bun run release:dry-run
+
+# Execute production publication to NPM registry (gates + npm publish with provenance)
+bun run release
 ```
+
+---
+
+## NPM Publishing & Release Verification
+
+TraceX SDK packages are distributed as scoped public packages under the `@tracex` npm organization:
+- [`@tracex-dev/core`](https://www.npmjs.com/package/@tracex-dev/core)
+- [`@tracex-dev/node`](https://www.npmjs.com/package/@tracex-dev/node)
+- [`@tracex-dev/react`](https://www.npmjs.com/package/@tracex-dev/react)
+- [`@tracex-dev/nextjs`](https://www.npmjs.com/package/@tracex-dev/nextjs)
+
+### Release Guarantees
+1. **Atomic Workspace Resolution**: Monorepo packages use `workspace:*` dependencies for local development. During release packaging (`scripts/publish.ts`), dependencies are safely rewritten to exact semver ranges (`^0.1.0`) inside published tarballs and automatically restored to `workspace:*` immediately afterward.
+2. **External Sandbox Verification**: Prior to release, `test/sandbox-verify.ts` creates an isolated directory outside the monorepo, runs `npm install` against generated `.tgz` artifacts, verifies `tsc --noEmit` compiles consumer code with 0 errors, and executes both ESM (`.mjs`) and CommonJS (`.cjs`) consumers under Node.js with exit code 0.
+3. **Topological Order**: Packages are published in topological dependency sequence (`@tracex-dev/core` $\to$ `@tracex-dev/node` & `@tracex-dev/react` $\to$ `@tracex-dev/nextjs`).
+4. **CI/CD Automation & Provenance**: The `.github/workflows/publish-sdk.yml` workflow triggers on git tag pushes (`v*`) and manual workflow dispatch (`dry_run: true` by default), publishing artifacts with cryptographic OIDC provenance.
 
 ---
 

@@ -1,4 +1,7 @@
-# `@tracex/node`
+# `@tracex-dev/node`
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![npm version](https://img.shields.io/npm/v/@tracex-dev/node.svg)](https://www.npmjs.com/package/@tracex-dev/node)
 
 TraceX Crash Telemetry and Runtime Forensics SDK for **Node.js** (`>=18.0.0`) and **Bun** server runtimes.
 
@@ -19,9 +22,9 @@ Automatically catches unhandled process crashes, tracks outgoing HTTP/HTTPS clie
 ## Installation
 
 ```bash
-bun add @tracex/node
+bun add @tracex-dev/node
 # or
-npm install @tracex/node
+npm install @tracex-dev/node
 ```
 
 ---
@@ -29,7 +32,7 @@ npm install @tracex/node
 ## Quickstart
 
 ```typescript
-import { TraceX } from '@tracex/node';
+import { TraceX } from '@tracex-dev/node';
 
 // Initialize the SDK early in your application lifecycle
 TraceX.init({

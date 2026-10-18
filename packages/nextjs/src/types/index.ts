@@ -7,11 +7,11 @@ import type {
   ITransport,
   TraceXOptions,
   TransportResponse,
-} from '@tracex/core';
+} from '@tracex-dev/core';
 import type {
   ServerEnvironmentContext,
   TraceXNodeOptions,
-} from '@tracex/node';
+} from '@tracex-dev/node';
 import type {
   BrowserEnvironmentContext,
   FallbackProps,
@@ -20,7 +20,7 @@ import type {
   TraceXErrorBoundaryState,
   TraceXReactClient,
   TraceXReactOptions,
-} from '@tracex/react';
+} from '@tracex-dev/react';
 import type React from 'react';
 
 /**

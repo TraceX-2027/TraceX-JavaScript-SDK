@@ -1,0 +1,72 @@
+name: Publish SDK Suite to NPM
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run release (validate gates and run npm publish --dry-run)'
+        type: boolean
+        required: false
+        default: true
+
+concurrency:
+  group: publish-sdk-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Build, Verify and Publish SDKs
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Bun Runtime
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Setup Node.js & NPM Registry
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Gate 1 - TypeScript Typecheck
+        run: bun run typecheck
+
+      - name: Gate 2 - Unit & Integration Test Suite
+        run: bun test
+
+      - name: Gate 3 - Production Build
+        run: bun run build
+
+      - name: Gate 4 - Release Tarballs & External Sandbox Verification
+        run: |
+          bun run pack:all
+          bun run test:sandbox
+
+      - name: Release to NPM (Dry Run)
+        if: ${{ github.event_name == 'workflow_dispatch' && (inputs.dry_run == true || inputs.dry_run == 'true' || github.event.inputs.dry_run == 'true') }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: bun run release:dry-run --skip-gates
+
+      - name: Release to NPM (Live Publication with Provenance)
+        if: ${{ github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && (inputs.dry_run == false || inputs.dry_run == 'false' || github.event.inputs.dry_run == 'false')) }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: bun run release --skip-gates --provenance

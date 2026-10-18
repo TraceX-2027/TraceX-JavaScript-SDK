@@ -2,7 +2,7 @@ import * as readline from 'node:readline/promises';
 import { stdin as input, stdout as output } from 'node:process';
 import process from 'node:process';
 import os from 'node:os';
-import { TraceX } from '@tracex/node';
+import { TraceX } from '@tracex-dev/node';
 
 /**
  * Detect active runtime and format runtime forensics banner.

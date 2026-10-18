@@ -8,7 +8,7 @@ import {
   type TraceXReactClient,
   type FallbackProps,
   type FallbackRender,
-} from '@tracex/react';
+} from '@tracex-dev/react';
 import type { TraceXClientProviderProps } from '../types/index';
 
 /**

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { captureNextGlobalError } from '@tracex/nextjs/client';
+import { captureNextGlobalError } from '@tracex-dev/nextjs/client';
 
 export default function GlobalError({
   error,

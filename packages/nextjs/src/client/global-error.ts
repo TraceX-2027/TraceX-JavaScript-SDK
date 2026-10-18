@@ -1,4 +1,4 @@
-import { TraceX } from '@tracex/react';
+import { TraceX } from '@tracex-dev/react';
 
 function generateFallbackEventId(): string {
   if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {

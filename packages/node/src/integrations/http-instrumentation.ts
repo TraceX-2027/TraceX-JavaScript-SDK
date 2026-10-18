@@ -1,7 +1,7 @@
 import http from 'node:http';
 import https from 'node:https';
 import { AsyncLocalStorage } from 'node:async_hooks';
-import { TraceXClient } from '@tracex/core';
+import { TraceXClient } from '@tracex-dev/core';
 
 const httpScope = new AsyncLocalStorage<boolean>();
 const TRACEX_INTERCEPTED = Symbol('tracex_intercepted');

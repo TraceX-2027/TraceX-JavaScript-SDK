@@ -1,6 +1,9 @@
-# `@tracex/core`
+# `@tracex-dev/core`
 
-The core client engine and telemetry pipeline powering all TraceX SDKs (`@tracex/node`, `@tracex/react`, and `@tracex/nextjs`).
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![npm version](https://img.shields.io/npm/v/@tracex-dev/core.svg)](https://www.npmjs.com/package/@tracex-dev/core)
+
+The core client engine and telemetry pipeline powering all TraceX SDKs (`@tracex-dev/node`, `@tracex-dev/react`, and `@tracex-dev/nextjs`).
 
 Provides thread-safe FIFO circular ring buffers, comprehensive PII sanitization (Luhn credit cards, Bearer tokens, secrets), and an asynchronous non-blocking HTTP telemetry dispatcher with exponential backoff and HTTP 429 rate-limit handling.
 
@@ -19,9 +22,9 @@ Provides thread-safe FIFO circular ring buffers, comprehensive PII sanitization 
 ## Installation
 
 ```bash
-bun add @tracex/core
+bun add @tracex-dev/core
 # or
-npm install @tracex/core
+npm install @tracex-dev/core
 ```
 
 ---
@@ -29,7 +32,7 @@ npm install @tracex/core
 ## Usage Example
 
 ```typescript
-import { TraceX, type TraceXOptions } from '@tracex/core';
+import { TraceX, type TraceXOptions } from '@tracex-dev/core';
 
 // 1. Initialize client
 const client = TraceX.init({
@@ -81,7 +84,7 @@ client.close(timeoutMs?: number): Promise<boolean>;
 Circular FIFO buffer maintaining fresh contextual telemetry without unbound memory leaks.
 
 ```typescript
-import { BreadcrumbRingBuffer } from '@tracex/core';
+import { BreadcrumbRingBuffer } from '@tracex-dev/core';
 
 const buffer = new BreadcrumbRingBuffer(50);
 buffer.add({ category: 'action', action: 'click', target: 'button' });
@@ -92,7 +95,7 @@ const items = buffer.getItems();
 Deep recursive data sanitizer for strings, objects, and full payloads.
 
 ```typescript
-import { DataScrubber } from '@tracex/core';
+import { DataScrubber } from '@tracex-dev/core';
 
 const scrubber = new DataScrubber();
 const sanitizedString = scrubber.scrubString('Token: Bearer secret_123'); // "Token: Bearer [REDACTED]"
@@ -103,7 +106,7 @@ const sanitizedObj = scrubber.scrub({ password: '123', publicField: 'ok' });
 Non-blocking background queue with retry logic and rate-limit backoff.
 
 ```typescript
-import { HttpTelemetryDispatcher } from '@tracex/core';
+import { HttpTelemetryDispatcher } from '@tracex-dev/core';
 
 const dispatcher = new HttpTelemetryDispatcher({
   projectKey: 'tracex_live_...',

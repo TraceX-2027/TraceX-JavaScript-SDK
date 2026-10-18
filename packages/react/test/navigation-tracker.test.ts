@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, afterEach } from 'bun:test';
 import { GlobalWindow } from 'happy-dom';
 import { NavigationTracker } from '../src/integrations/navigation-tracker';
 import { TraceXReactClient } from '../src/client/react-client';
-import { Breadcrumb } from '@tracex/core';
+import { Breadcrumb } from '@tracex-dev/core';
 
 describe('NavigationTracker', () => {
   let win: GlobalWindow;

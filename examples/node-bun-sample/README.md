@@ -1,6 +1,6 @@
-# TraceX Node.js & Bun Sample Application (`@tracex/example-node-bun`)
+# TraceX Node.js & Bun Sample Application (`@tracex-dev/example-node-bun`)
 
-A dual-runtime reference CLI application showcasing the `@tracex/node` SDK running across both **Bun** and **Node.js** server environments.
+A dual-runtime reference CLI application showcasing the `@tracex-dev/node` SDK running across both **Bun** and **Node.js** server environments.
 
 ---
 
@@ -83,7 +83,7 @@ node dist/index.js --interactive
 ## Code Overview
 
 ```typescript
-import { TraceX } from '@tracex/node';
+import { TraceX } from '@tracex-dev/node';
 
 // 1. Initialize client
 TraceX.init({
