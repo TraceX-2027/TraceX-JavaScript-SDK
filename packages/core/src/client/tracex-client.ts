@@ -141,6 +141,21 @@ export class TraceXClient {
       if (this.options.release && !envContext.app_version) {
         envContext.app_version = this.options.release;
       }
+      if (!envContext.app_version) {
+        envContext.app_version = '1.0.0';
+      }
+      if (!envContext.os_name) {
+        envContext.os_name = typeof navigator !== 'undefined' ? 'Web' : 'Node';
+      }
+      if (!envContext.os_version) {
+        envContext.os_version = '1.0';
+      }
+      if (!envContext.device_model) {
+        envContext.device_model = typeof navigator !== 'undefined' ? 'Browser' : 'Server';
+      }
+      if (typeof envContext.is_physical_device === 'undefined') {
+        envContext.is_physical_device = true;
+      }
 
       // Merge ad-hoc context
       if (context) {
