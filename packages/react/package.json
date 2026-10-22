@@ -1,6 +1,6 @@
 {
   "name": "@tracex-dev/react",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "TraceX SDK for React and browser applications",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",

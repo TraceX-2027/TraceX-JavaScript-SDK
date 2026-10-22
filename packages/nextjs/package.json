@@ -1,6 +1,6 @@
 {
   "name": "@tracex-dev/nextjs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "TraceX SDK for Next.js full-stack applications",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",

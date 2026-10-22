@@ -59,12 +59,12 @@ flowchart TD
 
 | Package | Runtime Target | Version | Description |
 |---|---|---|---|
-| [`@tracex-dev/core`](./packages/core) | Isomorphic (Browser, Node, Bun, Edge) | `0.1.0` | Core telemetry engine: FIFO ring buffer, PII scrubber, 429 backoff dispatcher. |
-| [`@tracex-dev/node`](./packages/node) | Node.js `>=18.0.0`, Bun | `0.1.0` | Server SDK: Uncaught errors, HTTP client breadcrumbs, process lifecycle. |
-| [`@tracex-dev/react`](./packages/react) | Browser, React `>=16.8.0`, React 18, React 19 | `0.1.0` | Client SDK: `<TraceXErrorBoundary>`, DOM click tracking, SPA navigation. |
-| [`@tracex-dev/nextjs`](./packages/nextjs) | Next.js App Router & Pages Router | `0.1.0` | Full-stack SDK: `withTraceXServerAction`, `withTraceXRoute`, `<TraceXClientProvider>`. |
-| [`@tracex-dev/example-node-bun`](./examples/node-bun-sample) | Node.js & Bun CLI | `0.1.0` | Dual-runtime showcase application with automated walkthrough & interactive menu. |
-| [`@tracex-dev/example-nextjs`](./examples/nextjs-app-router-sample) | Next.js 16 App Router | `0.1.0` | Dark-themed developer dashboard testbed for client, action, and route crashes. |
+| [`@tracex-dev/core`](./packages/core) | Isomorphic (Browser, Node, Bun, Edge) | `0.1.1` | Core telemetry engine: FIFO ring buffer, PII scrubber, 429 backoff dispatcher. |
+| [`@tracex-dev/node`](./packages/node) | Node.js `>=18.0.0`, Bun | `0.1.1` | Server SDK: Uncaught errors, HTTP client breadcrumbs, process lifecycle. |
+| [`@tracex-dev/react`](./packages/react) | Browser, React `>=16.8.0`, React 18, React 19 | `0.1.1` | Client SDK: `<TraceXErrorBoundary>`, DOM click tracking, SPA navigation. |
+| [`@tracex-dev/nextjs`](./packages/nextjs) | Next.js App Router & Pages Router | `0.1.1` | Full-stack SDK: `withTraceXServerAction`, `withTraceXRoute`, `<TraceXClientProvider>`. |
+| [`@tracex-dev/example-node-bun`](./examples/node-bun-sample) | Node.js & Bun CLI | `0.1.1` | Dual-runtime showcase application with automated walkthrough & interactive menu. |
+| [`@tracex-dev/example-nextjs`](./examples/nextjs-app-router-sample) | Next.js 16 App Router | `0.1.1` | Dark-themed developer dashboard testbed for client, action, and route crashes. |
 
 ---
 
@@ -333,4 +333,4 @@ TraceX SDK packages are distributed as scoped public packages under the [`@trace
 
 ## License
 
-MIT © 2026 TraceX Platform Team. See [LICENSE](LICENSE) for details.
+MIT © 2026 TraceX Platform Team. See [LICENSE](LICENSE) for details.

@@ -1,6 +1,6 @@
 {
   "name": "@tracex-dev/example-node-bun",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "description": "TraceX Dual-Runtime Node.js and Bun CLI Showcase Application",
   "type": "module",
